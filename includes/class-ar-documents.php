@@ -46,7 +46,8 @@ class AR_Documents {
     public function ajax_upload_document() {
         check_ajax_referer('ar_admin_nonce', 'nonce');
         
-        if (!current_user_can('ar_upload_documents')) {
+        // Allow Portal Admins and WordPress Administrators
+        if (!current_user_can('ar_manage_documents') && !current_user_can('manage_options')) {
             wp_send_json_error(array('message' => __('Permesso negato', 'area-riservata')));
         }
         
