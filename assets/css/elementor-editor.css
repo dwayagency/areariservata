@@ -1,0 +1,31 @@
+/* Elementor Editor Styles */
+
+.ar-elementor-preview {
+    min-height: 200px;
+}
+
+.elementor-widget-ar_login .elementor-widget-container,
+.elementor-widget-ar_register .elementor-widget-container,
+.elementor-widget-ar_dashboard .elementor-widget-container,
+.elementor-widget-ar_admin .elementor-widget-container,
+.elementor-widget-ar_password_reset .elementor-widget-container {
+    position: relative;
+}
+
+/* Widget Icons in Panel */
+.elementor-element .icon .eicon-lock-user::before,
+.elementor-element .icon .eicon-form-horizontal::before,
+.elementor-element .icon .eicon-dashboard::before,
+.elementor-element .icon .eicon-lock::before {
+    color: #2271b1;
+}
+
+/* Category Icon */
+.elementor-panel .elementor-panel-category[data-category="area-riservata"] {
+    border-left: 3px solid #2271b1;
+}
+
+.element or-panel .elementor-panel-category[data-category="area-riservata"] .elementor-panel-category-title {
+    color: #2271b1;
+    font-weight: 600;
+}

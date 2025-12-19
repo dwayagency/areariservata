@@ -80,7 +80,7 @@ class AR_Password {
     public function ajax_reset_password() {
         check_ajax_referer('ar_admin_nonce', 'nonce');
         
-        if (!current_user_can('ar_manage_users')) {
+        if (!current_user_can('ar_manage_users') && !current_user_can('manage_options')) {
             wp_send_json_error(array('message' => __('Permesso negato', 'area-riservata')));
         }
         

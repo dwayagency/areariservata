@@ -1,57 +1,145 @@
-/* Area Riservata - Main Styles */
+/* Area Riservata - Modern Premium Design */
 
 :root {
-    --ar-primary: #2271b1;
-    --ar-success: #00a32a;
-    --ar-warning: #dba617;
-    --ar-danger: #d63638;
-    --ar-secondary: #6c757d;
-    --ar-light: #f6f7f7;
-    --ar-dark: #1d2327;
-    --ar-border: #dcdcde;
+    /* Primary Colors - Customizable */
+    --ar-primary-h: 210;
+    --ar-primary-s: 100%;
+    --ar-primary-l: 50%;
+    --ar-primary: hsl(var(--ar-primary-h), var(--ar-primary-s), var(--ar-primary-l));
+    --ar-primary-light: hsl(var(--ar-primary-h), var(--ar-primary-s), 60%);
+    --ar-primary-dark: hsl(var(--ar-primary-h), var(--ar-primary-s), 40%);
+    --ar-primary-gradient: linear-gradient(135deg,
+            hsl(var(--ar-primary-h), var(--ar-primary-s), 45%),
+            hsl(calc(var(--ar-primary-h) + 20), var(--ar-primary-s), 55%));
+
+    /* Accent Colors */
+    --ar-accent: hsl(280, 70%, 55%);
+    --ar-accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    /* Status Colors */
+    --ar-success: #10b981;
+    --ar-success-light: #d1fae5;
+    --ar-warning: #f59e0b;
+    --ar-warning-light: #fef3c7;
+    --ar-danger: #ef4444;
+    --ar-danger-light: #fee2e2;
+    --ar-info: #3b82f6;
+    --ar-info-light: #dbeafe;
+
+    /* Neutral Colors */
+    --ar-dark: #0f172a;
+    --ar-dark-light: #1e293b;
+    --ar-gray: #64748b;
+    --ar-gray-light: #cbd5e1;
+    --ar-light: #f1f5f9;
+    --ar-white: #ffffff;
+
+    /* Shadows */
+    --ar-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --ar-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --ar-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --ar-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --ar-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Glass Effect */
+    --ar-glass-bg: rgba(255, 255, 255, 0.7);
+    --ar-glass-border: rgba(255, 255, 255, 0.18);
+
+    /* Transitions */
+    --ar-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --ar-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Forms */
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ar-dark: #f8fafc;
+        --ar-dark-light: #e2e8f0;
+        --ar-light: #1e293b;
+        --ar-white: #0f172a;
+        --ar-glass-bg: rgba(30, 41, 59, 0.7);
+    }
+}
+
+/* Reset and Base */
+* {
+    box-sizing: border-box;
+}
+
+/* Forms - Modern Premium Style */
 .ar-registration-form,
-.ar-login-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 30px;
-    background: #fff;
-    border: 1px solid var(--ar-border);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.ar-login-form,
+.ar-password-reset-form {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.ar-form-container {
+    background: var(--ar-white);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--ar-glass-border);
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: var(--ar-shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.ar-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--ar-primary-gradient);
 }
 
 .ar-registration-form h2,
-.ar-login-form h2 {
-    margin-top: 0;
-    margin-bottom: 25px;
-    text-align: center;
+.ar-login-form h2,
+.ar-password-reset-form h2 {
+    margin: 0 0 32px;
+    font-size: 32px;
+    font-weight: 800;
     color: var(--ar-dark);
+    text-align: center;
+    letter-spacing: -0.5px;
 }
 
 .ar-form-group {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    position: relative;
 }
 
 .ar-form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 600;
+    font-size: 14px;
     color: var(--ar-dark);
+    letter-spacing: 0.3px;
 }
 
 .ar-form-group input[type="text"],
 .ar-form-group input[type="email"],
 .ar-form-group input[type="password"],
-.ar-form-group select {
+.ar-form-group select,
+.ar-form-group input[type="file"] {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--ar-border);
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.2s;
+    padding: 14px 18px;
+    border: 2px solid var(--ar-gray-light);
+    border-radius: 12px;
+    font-size: 16px;
+    background: var(--ar-white);
+    color: var(--ar-dark);
+    transition: var(--ar-transition);
+    font-family: inherit;
 }
 
 .ar-form-group input[type="text"]:focus,
@@ -60,182 +148,313 @@
 .ar-form-group select:focus {
     outline: none;
     border-color: var(--ar-primary);
-    box-shadow: 0 0 0 1px var(--ar-primary);
+    box-shadow: 0 0 0 4px hsla(var(--ar-primary-h), var(--ar-primary-s), var(--ar-primary-l), 0.1);
+    transform: translateY(-2px);
 }
 
 .ar-form-group small {
     display: block;
-    margin-top: 5px;
-    font-size: 12px;
-    color: #666;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--ar-gray);
 }
 
 .ar-form-group input[type="checkbox"] {
-    margin-right: 8px;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--ar-primary);
 }
 
 .ar-form-group input[type="file"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: 2px dashed var(--ar-border);
-    border-radius: 4px;
+    padding: 12px;
+    border-style: dashed;
     cursor: pointer;
+    background: var(--ar-light);
+    transition: var(--ar-transition);
 }
 
-/* Buttons */
+.ar-form-group input[type="file"]:hover {
+    border-color: var(--ar-primary);
+    background: var(--ar-white);
+}
+
+/* Buttons - Premium Style */
 .ar-btn {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
     border: none;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 12px;
+    font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: var(--ar-transition);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+}
+
+.ar-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ar-btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .ar-btn-primary {
-    background: var(--ar-primary);
-    color: #fff;
+    background: var(--ar-primary-gradient);
+    color: var(--ar-white);
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-btn-primary:hover {
-    background: #195e8f;
+    transform: translateY(-2px);
+    box-shadow: var(--ar-shadow-lg);
 }
 
 .ar-btn-success {
-    background: var(--ar-success);
-    color: #fff;
+    background: linear-gradient(135deg, var(--ar-success) 0%, #059669 100%);
+    color: var(--ar-white);
+    box-shadow: var(--ar-shadow);
 }
 
 .ar-btn-success:hover {
-    background: #008a24;
+    transform: translateY(-2px);
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-btn-warning {
-    background: var(--ar-warning);
-    color: #fff;
+    background: linear-gradient(135deg, var(--ar-warning) 0%, #d97706 100%);
+    color: var(--ar-white);
+    box-shadow: var(--ar-shadow);
 }
 
 .ar-btn-warning:hover {
-    background: #c29615;
+    transform: translateY(-2px);
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-btn-danger {
-    background: var(--ar-danger);
-    color: #fff;
+    background: linear-gradient(135deg, var(--ar-danger) 0%, #dc2626 100%);
+    color: var(--ar-white);
+    box-shadow: var(--ar-shadow);
 }
 
 .ar-btn-danger:hover {
-    background: #bf2a2c;
+    transform: translateY(-2px);
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-btn-secondary {
-    background: var(--ar-secondary);
-    color: #fff;
+    background: var(--ar-light);
+    color: var(--ar-dark);
+    border: 2px solid var(--ar-gray-light);
 }
 
 .ar-btn-secondary:hover {
-    background: #5a6268;
+    background: var(--ar-white);
+    border-color: var(--ar-gray);
 }
 
 .ar-btn-small {
-    padding: 6px 12px;
+    padding: 8px 16px;
     font-size: 13px;
+    border-radius: 8px;
 }
 
 .ar-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: not-allowed;
+    transform: none !important;
 }
 
-/* Messages */
+/* Messages - Modern Alerts */
 .ar-form-messages {
-    margin: 15px 0;
-    padding: 12px;
-    border-radius: 4px;
+    margin: 20px 0;
+    padding: 16px 20px;
+    border-radius: 12px;
     display: none;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .ar-form-messages.success {
-    display: block;
-    background: #d7f5dd;
-    border: 1px solid var(--ar-success);
-    color: #006616;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ar-success-light);
+    border-left: 4px solid var(--ar-success);
+    color: #065f46;
+}
+
+.ar-form-messages.success::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--ar-success);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
 }
 
 .ar-form-messages.error {
-    display: block;
-    background: #f9dddd;
-    border: 1px solid var(--ar-danger);
-    color: #8b1010;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ar-danger-light);
+    border-left: 4px solid var(--ar-danger);
+    color: #991b1b;
+}
+
+.ar-form-messages.error::before {
+    content: '!';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--ar-danger);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
 }
 
 .ar-form-footer {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--ar-border);
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ar-gray-light);
+    color: var(--ar-gray);
 }
 
-/* Dashboards */
+.ar-form-footer a {
+    color: var(--ar-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--ar-transition-fast);
+}
+
+.ar-form-footer a:hover {
+    color: var(--ar-primary-dark);
+    text-decoration: underline;
+}
+
+/* Dashboards - Premium Glass Design */
 .ar-user-dashboard,
 .ar-admin-dashboard {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 .ar-dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid var(--ar-border);
+    margin-bottom: 40px;
+    padding: 32px;
+    background: var(--ar-white);
+    border-radius: 20px;
+    box-shadow: var(--ar-shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.ar-dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--ar-accent-gradient);
 }
 
 .ar-dashboard-header h2 {
     margin: 0;
+    font-size: 32px;
+    font-weight: 800;
     color: var(--ar-dark);
 }
 
 .ar-dashboard-content h3 {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 700;
     color: var(--ar-dark);
 }
 
-/* Tables */
+/* Tables - Modern Premium Design */
 .ar-documents-table,
 .ar-admin-table {
     width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border: 1px solid var(--ar-border);
-    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--ar-white);
+    border-radius: 16px;
     overflow: hidden;
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-documents-table thead,
 .ar-admin-table thead {
-    background: var(--ar-light);
+    background: var(--ar-primary-gradient);
 }
 
 .ar-documents-table th,
 .ar-admin-table th {
-    padding: 12px 15px;
+    padding: 18px 20px;
     text-align: left;
-    font-weight: 600;
-    color: var(--ar-dark);
-    border-bottom: 2px solid var(--ar-border);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ar-white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .ar-documents-table td,
 .ar-admin-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid var(--ar-border);
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--ar-light);
+    color: var(--ar-dark);
+    font-size: 15px;
+}
+
+.ar-documents-table tbody tr,
+.ar-admin-table tbody tr {
+    transition: var(--ar-transition-fast);
 }
 
 .ar-documents-table tbody tr:last-child td,
@@ -245,67 +464,102 @@
 
 .ar-documents-table tbody tr:hover,
 .ar-admin-table tbody tr:hover {
-    background: var(--ar-light);
+    background: linear-gradient(90deg, var(--ar-light) 0%, transparent 100%);
+    transform: scale(1.01);
 }
 
 .ar-file-icon {
-    margin-right: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    background: var(--ar-primary-gradient);
+    border-radius: 10px;
     font-size: 18px;
+    vertical-align: middle;
 }
 
 .ar-no-documents {
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
-    background: var(--ar-light);
-    border-radius: 8px;
-    color: #666;
+    background: linear-gradient(135deg, var(--ar-light) 0%, var(--ar-white) 100%);
+    border-radius: 16px;
+    color: var(--ar-gray);
+    font-size: 16px;
 }
 
-/* Admin Tabs */
+/* Admin Tabs - Modern Design */
 .ar-admin-tabs {
     display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--ar-border);
+    gap: 12px;
+    margin-bottom: 32px;
+    padding: 8px;
+    background: var(--ar-white);
+    border-radius: 16px;
+    box-shadow: var(--ar-shadow);
     flex-wrap: wrap;
 }
 
 .ar-tab-btn {
-    padding: 12px 20px;
+    flex: 1;
+    min-width: 140px;
+    padding: 14px 20px;
     background: transparent;
     border: none;
-    border-bottom: 3px solid transparent;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    color: var(--ar-secondary);
-    transition: all 0.2s;
+    color: var(--ar-gray);
+    transition: var(--ar-transition);
     position: relative;
 }
 
 .ar-tab-btn:hover {
     color: var(--ar-primary);
+    background: var(--ar-light);
 }
 
 .ar-tab-btn.active {
-    color: var(--ar-primary);
-    border-bottom-color: var(--ar-primary);
+    color: var(--ar-white);
+    background: var(--ar-primary-gradient);
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-badge {
-    display: inline-block;
-    padding: 2px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 8px;
     margin-left: 8px;
     background: var(--ar-danger);
-    color: #fff;
+    color: var(--ar-white);
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
+    box-shadow: var(--ar-shadow-sm);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 .ar-tab-content {
     display: none;
-    animation: fadeIn 0.3s;
+    animation: fadeIn 0.4s ease-out;
 }
 
 .ar-tab-content.active {
@@ -313,73 +567,112 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Pending Message */
+/* Pending Message - Info Card */
 .ar-pending-message {
-    padding: 30px;
-    background: #fff3cd;
-    border: 1px solid #ffc107;
-    border-radius: 8px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--ar-info-light) 0%, var(--ar-white) 100%);
+    border: 2px solid var(--ar-info);
+    border-radius: 20px;
     text-align: center;
+    box-shadow: var(--ar-shadow-md);
 }
 
 .ar-pending-message p {
     margin: 0;
-    color: #856404;
-    font-size: 16px;
+    color: #1e40af;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-/* Loading Spinner */
+/* Loading Spinner - Modern */
 .ar-loading {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,0.3);
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 0.8s linear infinite;
+    border-top-color: var(--ar-white);
+    animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* Responsive */
+/* Responsive - Mobile First */
 @media (max-width: 768px) {
-    .ar-registration-form,
-    .ar-login-form {
-        padding: 20px;
+    .ar-form-container {
+        padding: 32px 24px;
+        border-radius: 20px;
     }
-    
+
+    .ar-registration-form h2,
+    .ar-login-form h2,
+    .ar-password-reset-form h2 {
+        font-size: 26px;
+    }
+
     .ar-dashboard-header {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         align-items: flex-start;
+        padding: 24px;
     }
-    
+
+    .ar-dashboard-header h2 {
+        font-size: 24px;
+    }
+
     .ar-admin-tabs {
         flex-direction: column;
-        gap: 0;
+        gap: 8px;
     }
-    
+
     .ar-tab-btn {
         width: 100%;
         text-align: left;
-        border-bottom: 1px solid var(--ar-border);
     }
-    
+
     .ar-documents-table,
     .ar-admin-table {
         font-size: 13px;
     }
-    
+
     .ar-documents-table th,
     .ar-admin-table th,
     .ar-documents-table td,
     .ar-admin-table td {
-        padding: 8px 10px;
+        padding: 12px 14px;
+    }
+}
+
+/* Micro Interactions */
+.ar-btn,
+.ar-form-group input,
+.ar-form-group select,
+.ar-tab-btn {
+    will-change: transform;
+}
+
+/* Print Styles */
+@media print {
+
+    .ar-dashboard-header,
+    .ar-admin-tabs,
+    .ar-btn {
+        display: none;
     }
 }

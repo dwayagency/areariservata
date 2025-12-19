@@ -122,7 +122,8 @@ class AR_Frontend {
             return '<p>' . __('Devi effettuare il login per accedere a questa area.', 'area-riservata') . '</p>';
         }
         
-        if (!current_user_can('ar_manage_users')) {
+        // Allow both Portal Admins and WordPress Administrators
+        if (!current_user_can('ar_manage_users') && !current_user_can('manage_options')) {
             return '<p>' . __('Non hai i permessi per accedere a questa area.', 'area-riservata') . '</p>';
         }
         

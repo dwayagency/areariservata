@@ -45,8 +45,8 @@ class AR_Download {
         
         $user_id = get_current_user_id();
         
-        // Check if user is approved
-        if (!AR_Users::is_user_approved($user_id) && !current_user_can('ar_manage_documents')) {
+        // Check if user is approved (skip for WordPress Administrators)
+        if (!AR_Users::is_user_approved($user_id) && !current_user_can('ar_manage_documents') && !current_user_can('manage_options')) {
             $this->download_error(__('Account non approvato', 'area-riservata'));
         }
         
@@ -59,8 +59,8 @@ class AR_Download {
         }
         
         // Check if user has access to this document
-        // Portal admins can download any file, users only their assigned files
-        if (!current_user_can('ar_manage_documents') && $document->user_id != $user_id) {
+        // Portal admins and WordPress admins can download any file, users only their assigned files
+        if (!current_user_can('ar_manage_documents') && !current_user_can('manage_options') && $document->user_id != $user_id) {
             // Log unauthorized access attempt
             AR_Audit::log_action($user_id, 'access_denied', $document_id, array(
                 'reason' => 'not_assigned',

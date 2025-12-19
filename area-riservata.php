@@ -1,11 +1,10 @@
 <?php
 /**
  * Plugin Name: Area Riservata
- * Plugin URI: https://example.com/area-riservata
  * Description: Plugin per gestione area riservata con documenti sensibili e approvazione utenti
- * Version: 1.0.0
- * Author: Alessandro Molinari
- * Author URI: https://example.com
+ * Version: 1.1.0
+ * Author: DWAY Agency
+ * Author URI: https://dway.agency
  * License: GPL v2 or later
  * Text Domain: area-riservata
  * Domain Path: /languages
@@ -62,6 +61,9 @@ class Area_Riservata {
         require_once AR_PLUGIN_DIR . 'includes/class-ar-security.php';
         require_once AR_PLUGIN_DIR . 'includes/class-ar-audit.php';
         require_once AR_PLUGIN_DIR . 'includes/class-ar-password.php';
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-colors.php';
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-admin.php';
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-elementor.php';
         require_once AR_PLUGIN_DIR . 'includes/class-ar-frontend.php';
     }
     
@@ -87,6 +89,9 @@ class Area_Riservata {
         AR_Security::get_instance();
         AR_Audit::get_instance();
         AR_Password::get_instance();
+        AR_Colors::get_instance();
+        AR_Admin::get_instance();
+        AR_Elementor::get_instance();
         AR_Frontend::get_instance();
         
         // Load text domain
