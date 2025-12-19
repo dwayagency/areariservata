@@ -48,6 +48,11 @@ class AR_Users {
             wp_send_json_error(array('message' => __('Email già registrata', 'area-riservata')));
         }
         
+        // Validate password strength (minimum 8 characters)
+        if (strlen($password) < 8) {
+            wp_send_json_error(array('message' => __('La password deve essere di almeno 8 caratteri', 'area-riservata')));
+        }
+        
         // Create user
         $user_id = wp_create_user($email, $password, $email);
         
@@ -102,6 +107,11 @@ class AR_Users {
         
         if (email_exists($email)) {
             wp_send_json_error(array('message' => __('Email già registrata', 'area-riservata')));
+        }
+        
+        // Validate password strength
+        if (strlen($password) < 8) {
+            wp_send_json_error(array('message' => __('La password deve essere di almeno 8 caratteri', 'area-riservata')));
         }
         
         $user_id = wp_create_user($email, $password, $email);

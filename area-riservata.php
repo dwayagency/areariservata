@@ -61,6 +61,7 @@ class Area_Riservata {
         require_once AR_PLUGIN_DIR . 'includes/class-ar-download.php';
         require_once AR_PLUGIN_DIR . 'includes/class-ar-security.php';
         require_once AR_PLUGIN_DIR . 'includes/class-ar-audit.php';
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-password.php';
         require_once AR_PLUGIN_DIR . 'includes/class-ar-frontend.php';
     }
     
@@ -85,6 +86,7 @@ class Area_Riservata {
         AR_Download::get_instance();
         AR_Security::get_instance();
         AR_Audit::get_instance();
+        AR_Password::get_instance();
         AR_Frontend::get_instance();
         
         // Load text domain
@@ -96,6 +98,11 @@ class Area_Riservata {
      */
     public function activate() {
         global $wpdb;
+        
+        // Load dependencies first (needed for activation)
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-roles.php';
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-audit.php';
+        require_once AR_PLUGIN_DIR . 'includes/class-ar-security.php';
         
         // Create custom roles
         AR_Roles::create_roles();

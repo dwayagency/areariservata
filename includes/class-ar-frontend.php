@@ -24,6 +24,7 @@ class AR_Frontend {
         add_shortcode('ar_login', array($this, 'login_form_shortcode'));
         add_shortcode('ar_dashboard', array($this, 'user_dashboard_shortcode'));
         add_shortcode('ar_admin', array($this, 'admin_dashboard_shortcode'));
+        add_shortcode('ar_password_reset', array($this, 'password_reset_shortcode'));
         
         // Enqueue assets
         add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
@@ -167,5 +168,14 @@ class AR_Frontend {
             'message' => __('Logout effettuato', 'area-riservata'),
             'redirect' => home_url()
         ));
+    }
+    
+    /**
+     * Password reset form shortcode
+     */
+    public function password_reset_shortcode($atts) {
+        ob_start();
+        include AR_PLUGIN_DIR . 'templates/password-reset-form.php';
+        return ob_get_clean();
     }
 }
