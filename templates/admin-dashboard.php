@@ -7,6 +7,7 @@ $audit = AR_Audit::get_instance();
 $recent_activity = $audit->get_recent_activity(10);
 ?>
 
+<div class="area-riservata">
 <div class="ar-admin-dashboard">
     <div class="ar-dashboard-header">
         <h2><?php _e('Area Admin - Gestione Portale', 'area-riservata'); ?></h2>
@@ -235,4 +236,5 @@ $recent_activity = $audit->get_recent_activity(10);
             </table>
         <?php endif; ?>
     </div>
+</div>
 </div>

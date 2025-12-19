@@ -1,5 +1,6 @@
 <div class="ar-registration-form">
-    <div class="ar-form-container">
+    <div class="area-riservata">
+<div class="ar-form-container">
         <h2><?php _e('Registrazione', 'area-riservata'); ?></h2>
         
         <form id="ar-register-form" method="post">

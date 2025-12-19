@@ -1,5 +1,6 @@
 <div class="ar-login-form">
-    <div class="ar-form-container">
+    <div class="area-riservata">
+<div class="ar-form-container">
         <h2><?php _e('Accedi', 'area-riservata'); ?></h2>
         
         <form id="ar-login-form" method="post">
@@ -34,4 +35,5 @@
             <a href="<?php echo home_url('/password-reset/'); ?>"><?php _e('Password dimenticata?', 'area-riservata'); ?></a>
         </p>
     </div>
+</div>
 </div>

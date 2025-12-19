@@ -1,34 +1,32 @@
 /* Area Riservata - Modern Premium Design */
 
 :root {
-    /* Primary Colors - Customizable */
-    --ar-primary-h: 210;
-    --ar-primary-s: 100%;
-    --ar-primary-l: 50%;
-    --ar-primary: hsl(var(--ar-primary-h), var(--ar-primary-s), var(--ar-primary-l));
-    --ar-primary-light: hsl(var(--ar-primary-h), var(--ar-primary-s), 60%);
-    --ar-primary-dark: hsl(var(--ar-primary-h), var(--ar-primary-s), 40%);
-    --ar-primary-gradient: linear-gradient(135deg,
-            hsl(var(--ar-primary-h), var(--ar-primary-s), 45%),
-            hsl(calc(var(--ar-primary-h) + 20), var(--ar-primary-s), 55%));
+    /* Monochrome Colors - Black & White Theme */
+    --ar-primary-h: 0;
+    --ar-primary-s: 0%;
+    --ar-primary-l: 20%;
+    --ar-primary: hsl(0, 0%, 20%);
+    --ar-primary-light: hsl(0, 0%, 30%);
+    --ar-primary-dark: hsl(0, 0%, 10%);
+    --ar-primary-gradient: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 
-    /* Accent Colors */
-    --ar-accent: hsl(280, 70%, 55%);
-    --ar-accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Accent Colors - Grayscale */
+    --ar-accent: hsl(0, 0%, 25%);
+    --ar-accent-gradient: linear-gradient(135deg, #2a2a2a 0%, #3f3f3f 100%);
 
-    /* Status Colors */
-    --ar-success: #10b981;
-    --ar-success-light: #d1fae5;
-    --ar-warning: #f59e0b;
-    --ar-warning-light: #fef3c7;
-    --ar-danger: #ef4444;
-    --ar-danger-light: #fee2e2;
-    --ar-info: #3b82f6;
-    --ar-info-light: #dbeafe;
+    /* Status Colors - Monochrome */
+    --ar-success: #2d2d2d;
+    --ar-success-light: #e8e8e8;
+    --ar-warning: #4a4a4a;
+    --ar-warning-light: #f0f0f0;
+    --ar-danger: #1a1a1a;
+    --ar-danger-light: #ececec;
+    --ar-info: #3a3a3a;
+    --ar-info-light: #eeeeee;
 
     /* Neutral Colors */
-    --ar-dark: #0f172a;
-    --ar-dark-light: #1e293b;
+    --ar-dark: #0f0f0f;
+    --ar-dark-light: #1e1e1e;
     --ar-gray: #64748b;
     --ar-gray-light: #cbd5e1;
     --ar-light: #f1f5f9;
@@ -43,7 +41,7 @@
 
     /* Glass Effect */
     --ar-glass-bg: rgba(255, 255, 255, 0.7);
-    --ar-glass-border: rgba(255, 255, 255, 0.18);
+    --ar-glass-border: rgba(0, 0, 0, 0.08);
 
     /* Transitions */
     --ar-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,7 +131,7 @@
 .ar-form-group input[type="file"] {
     width: 100%;
     padding: 14px 18px;
-    border: 2px solid var(--ar-gray-light);
+    border: 2px solid var(--ar-gray);
     border-radius: 12px;
     font-size: 16px;
     background: var(--ar-white);
@@ -152,11 +150,18 @@
     transform: translateY(-2px);
 }
 
+.ar-form-group input::placeholder,
+.ar-form-group select::placeholder {
+    color: var(--ar-dark);
+    opacity: 0.5;
+}
+
 .ar-form-group small {
     display: block;
     margin-top: 8px;
     font-size: 13px;
-    color: var(--ar-gray);
+    color: var(--ar-dark);
+    opacity: 0.7;
 }
 
 .ar-form-group input[type="checkbox"] {
@@ -171,7 +176,7 @@
     padding: 12px;
     border-style: dashed;
     cursor: pointer;
-    background: var(--ar-light);
+    background: var(--ar-white);
     transition: var(--ar-transition);
 }
 
@@ -229,7 +234,7 @@
 }
 
 .ar-btn-success {
-    background: linear-gradient(135deg, var(--ar-success) 0%, #059669 100%);
+    background: linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%);
     color: var(--ar-white);
     box-shadow: var(--ar-shadow);
 }
@@ -240,7 +245,7 @@
 }
 
 .ar-btn-warning {
-    background: linear-gradient(135deg, var(--ar-warning) 0%, #d97706 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     color: var(--ar-white);
     box-shadow: var(--ar-shadow);
 }
@@ -251,7 +256,7 @@
 }
 
 .ar-btn-danger {
-    background: linear-gradient(135deg, var(--ar-danger) 0%, #dc2626 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     color: var(--ar-white);
     box-shadow: var(--ar-shadow);
 }
@@ -262,14 +267,15 @@
 }
 
 .ar-btn-secondary {
-    background: var(--ar-light);
+    background: var(--ar-white);
     color: var(--ar-dark);
-    border: 2px solid var(--ar-gray-light);
+    border: 2px solid var(--ar-gray);
 }
 
 .ar-btn-secondary:hover {
     background: var(--ar-white);
-    border-color: var(--ar-gray);
+    border-color: var(--ar-dark);
+    box-shadow: var(--ar-shadow);
 }
 
 .ar-btn-small {
@@ -311,9 +317,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--ar-success-light);
-    border-left: 4px solid var(--ar-success);
-    color: #065f46;
+    background: #e8e8e8;
+    border-left: 4px solid #2d2d2d;
+    color: #1a1a1a;
 }
 
 .ar-form-messages.success::before {
@@ -323,7 +329,7 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    background: var(--ar-success);
+    background: #2d2d2d;
     color: white;
     border-radius: 50%;
     font-weight: bold;
@@ -333,9 +339,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--ar-danger-light);
-    border-left: 4px solid var(--ar-danger);
-    color: #991b1b;
+    background: #ececec;
+    border-left: 4px solid #1a1a1a;
+    color: #0a0a0a;
 }
 
 .ar-form-messages.error::before {
@@ -345,7 +351,7 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    background: var(--ar-danger);
+    background: #1a1a1a;
     color: white;
     border-radius: 50%;
     font-weight: bold;
@@ -356,7 +362,8 @@
     margin-top: 32px;
     padding-top: 24px;
     border-top: 1px solid var(--ar-gray-light);
-    color: var(--ar-gray);
+    color: var(--ar-dark);
+    opacity: 0.8;
 }
 
 .ar-form-footer a {
@@ -486,7 +493,8 @@
     text-align: center;
     background: linear-gradient(135deg, var(--ar-light) 0%, var(--ar-white) 100%);
     border-radius: 16px;
-    color: var(--ar-gray);
+    color: var(--ar-dark);
+    opacity: 0.7;
     font-size: 16px;
 }
 
@@ -512,17 +520,20 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    color: var(--ar-gray);
+    color: var(--ar-dark);
+    opacity: 0.6;
     transition: var(--ar-transition);
     position: relative;
 }
 
 .ar-tab-btn:hover {
-    color: var(--ar-primary);
+    opacity: 1;
+    color: var(--ar-dark);
     background: var(--ar-light);
 }
 
 .ar-tab-btn.active {
+    opacity: 1;
     color: var(--ar-white);
     background: var(--ar-primary-gradient);
     box-shadow: var(--ar-shadow-md);
@@ -536,7 +547,7 @@
     height: 24px;
     padding: 0 8px;
     margin-left: 8px;
-    background: var(--ar-danger);
+    background: #1a1a1a;
     color: var(--ar-white);
     border-radius: 12px;
     font-size: 11px;
@@ -581,8 +592,8 @@
 /* Pending Message - Info Card */
 .ar-pending-message {
     padding: 40px;
-    background: linear-gradient(135deg, var(--ar-info-light) 0%, var(--ar-white) 100%);
-    border: 2px solid var(--ar-info);
+    background: linear-gradient(135deg, #eeeeee 0%, var(--ar-white) 100%);
+    border: 2px solid #3a3a3a;
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--ar-shadow-md);
@@ -590,7 +601,7 @@
 
 .ar-pending-message p {
     margin: 0;
-    color: #1e40af;
+    color: #1a1a1a;
     font-size: 18px;
     font-weight: 500;
 }

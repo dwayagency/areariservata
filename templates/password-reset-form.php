@@ -5,7 +5,8 @@
 ?>
 
 <div class="ar-password-reset-form">
-    <div class="ar-form-container">
+    <div class="area-riservata">
+<div class="ar-form-container">
         <h2><?php _e('Reset Password', 'area-riservata'); ?></h2>
         
         <p style="text-align: center; color: var(--ar-gray); margin-bottom: 24px;">

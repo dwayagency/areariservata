@@ -5,17 +5,20 @@ $documents_instance = AR_Documents::get_instance();
 $documents = $documents_instance->get_user_documents($user_id);
 ?>
 
+<div class="area-riservata">
 <div class="ar-user-dashboard">
     <div class="ar-dashboard-header">
-        <h2><?php printf(__('Benvenuto, %s', 'area-riservata'), $user->first_name); ?></h2>
+        <h2><?php _e('I Tuoi Documenti', 'area-riservata'); ?></h2>
         <a href="#" class="ar-logout-btn ar-btn ar-btn-secondary"><?php _e('Logout', 'area-riservata'); ?></a>
     </div>
     
     <div class="ar-dashboard-content">
-        <h3><?php _e('I Miei Documenti', 'area-riservata'); ?></h3>
+        <h3><?php _e('Documenti Assegnati', 'area-riservata'); ?></h3>
         
         <?php if (empty($documents)): ?>
-            <p class="ar-no-documents"><?php _e('Nessun documento disponibile al momento.', 'area-riservata'); ?></p>
+            <div class="ar-no-documents">
+                <p><?php _e('Nessun documento disponibile al momento.', 'area-riservata'); ?></p>
+            </div>
         <?php else: ?>
             <table class="ar-documents-table">
                 <thead>
@@ -47,4 +50,5 @@ $documents = $documents_instance->get_user_documents($user_id);
             </table>
         <?php endif; ?>
     </div>
+</div>
 </div>

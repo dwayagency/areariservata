@@ -1,0 +1,152 @@
+/* FORCE SIMPLE BLACK & WHITE - ONLY inside .area-riservata container */
+
+/* Force ALL backgrounds to WHITE inside area-riservata */
+.area-riservata * {
+    background-color: #ffffff !important;
+}
+
+/* Force ALL text to BLACK inside area-riservata */
+.area-riservata *,
+.area-riservata h1,
+.area-riservata h2,
+.area-riservata h3,
+.area-riservata h4,
+.area-riservata h5,
+.area-riservata h6,
+.area-riservata p,
+.area-riservata span,
+.area-riservata div,
+.area-riservata label,
+.area-riservata a,
+.area-riservata td,
+.area-riservata th,
+.area-riservata input,
+.area-riservata select,
+.area-riservata textarea,
+.area-riservata button {
+    color: #000000 !important;
+}
+
+/* Keep white text ONLY on dark buttons */
+.area-riservata .ar-btn-primary,
+.area-riservata .ar-btn-primary *,
+.area-riservata .ar-btn-success,
+.area-riservata .ar-btn-success *,
+.area-riservata .ar-btn-warning,
+.area-riservata .ar-btn-warning *,
+.area-riservata .ar-btn-danger,
+.area-riservata .ar-btn-danger *,
+.area-riservata .ar-tab-btn.active,
+.area-riservata .ar-tab-btn.active *,
+.area-riservata .ar-badge,
+.area-riservata .ar-badge *,
+.area-riservata .ar-documents-table thead,
+.area-riservata .ar-documents-table thead *,
+.area-riservata .ar-admin-table thead,
+.area-riservata .ar-admin-table thead * {
+    color: #ffffff !important;
+}
+
+/* Force dark button backgrounds to BLACK */
+.area-riservata .ar-btn-primary,
+.area-riservata .ar-btn-danger {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+.area-riservata .ar-btn-success {
+    background: #333333 !important;
+    background-image: none !important;
+}
+
+.area-riservata .ar-btn-warning {
+    background: #666666 !important;
+    background-image: none !important;
+}
+
+/* Force secondary buttons WHITE with black border */
+.area-riservata .ar-btn-secondary,
+.area-riservata .ar-btn-secondary * {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+/* Force ALL inputs WHITE background */
+.area-riservata input,
+.area-riservata select,
+.area-riservata textarea {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+/* Force table headers BLACK */
+.area-riservata .ar-documents-table thead,
+.area-riservata .ar-admin-table thead {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+/* Force active tabs BLACK */
+.area-riservata .ar-tab-btn.active {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+/* Force inactive tabs WHITE */
+.area-riservata .ar-tab-btn {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+}
+
+/* Force badge BLACK */
+.area-riservata .ar-badge {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+/* Remove ALL gradients */
+.area-riservata .ar-form-container::before,
+.area-riservata .ar-dashboard-header::before {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+/* Force containers WHITE */
+.area-riservata .ar-form-container,
+.area-riservata .ar-dashboard-header,
+.area-riservata .ar-admin-tabs,
+.area-riservata .ar-tab-content,
+.area-riservata .ar-admin-dashboard,
+.area-riservata .ar-user-dashboard {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+}
+
+/* Force links BLACK */
+.area-riservata a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+}
+
+/* Force table cells WHITE */
+.area-riservata td {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+}
+
+/* Force messages WHITE background */
+.area-riservata .ar-form-messages {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+}
+
+.area-riservata .ar-form-messages::before {
+    background: #000000 !important;
+}

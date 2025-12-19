@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Area Riservata
  * Description: Plugin per gestione area riservata con documenti sensibili e approvazione utenti
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: DWAY Agency
  * Author URI: https://dway.agency
  * License: GPL v2 or later

@@ -35,37 +35,47 @@ class AR_Frontend {
     }
     
     /**
-     * Enqueue CSS and JS
+     * Enqueue assets
      */
     public function enqueue_assets() {
-        wp_enqueue_style(
-            'area-riservata',
-            AR_PLUGIN_URL . 'assets/css/area-riservata.css',
-            array(),
-            AR_VERSION
-        );
-        
-        wp_enqueue_script(
-            'area-riservata',
-            AR_PLUGIN_URL . 'assets/js/area-riservata.js',
-            array('jquery'),
-            AR_VERSION,
-            true
-        );
-        
-        // Localize script
-        wp_localize_script('area-riservata', 'arData', array(
-            'ajaxUrl' => admin_url('admin-ajax.php'),
-            'registerNonce' => wp_create_nonce('ar_register_nonce'),
-            'adminNonce' => wp_create_nonce('ar_admin_nonce'),
-            'frontendNonce' => wp_create_nonce('ar_frontend_nonce'),
-            'strings' => array(
-                'confirm_delete' => __('Sei sicuro di voler eliminare questo documento?', 'area-riservata'),
-                'confirm_reject' => __('Sei sicuro di voler rifiutare questo utente?', 'area-riservata'),
-                'loading' => __('Caricamento...', 'area-riservata'),
-                'error' => __('Si è verificato un errore', 'area-riservata'),
-            )
-        ));
+        // Only load on pages with our shortcodes or logged-in users
+        if (!is_admin()) {
+            wp_enqueue_style(
+                'area-riservata',
+                AR_PLUGIN_URL . 'assets/css/area-riservata.css',
+                array(),
+                AR_VERSION
+            );
+            
+            // Force black & white theme
+            wp_enqueue_style(
+                'area-riservata-bw',
+                AR_PLUGIN_URL . 'assets/css/black-white-override.css',
+                array('area-riservata'),
+                AR_VERSION
+            );
+            
+            wp_enqueue_script(
+                'area-riservata',
+                AR_PLUGIN_URL . 'assets/js/area-riservata.js',
+                array('jquery'),
+                AR_VERSION,
+                true
+            );
+            
+            wp_localize_script('area-riservata', 'arData', array(
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'registerNonce' => wp_create_nonce('ar_register_nonce'),
+                'adminNonce' => wp_create_nonce('ar_admin_nonce'),
+                'frontendNonce' => wp_create_nonce('ar_frontend_nonce'),
+                'strings' => array(
+                    'confirm_delete' => __('Sei sicuro di voler eliminare questo documento?', 'area-riservata'),
+                    'confirm_reject' => __('Sei sicuro di voler rifiutare questo utente?', 'area-riservata'),
+                    'loading' => __('Caricamento...', 'area-riservata'),
+                    'error' => __('Si è verificato un errore', 'area-riservata'),
+                )
+            ));
+        }
     }
     
     /**
